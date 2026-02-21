@@ -1,0 +1,14 @@
+{
+  "name": "anchor-web3js-nextjs",
+  "private": true,
+  "description": "Solana Counter dApp — Anchor + Web3.js + Next.js",
+  "scripts": {
+    "dev": "cd frontend && pnpm dev",
+    "build": "cd frontend && pnpm build",
+    "start": "cd frontend && pnpm start",
+    "lint": "cd frontend && pnpm lint"
+  },
+  "devDependencies": {
+    "next": "15.2.2"
+  }
+}
