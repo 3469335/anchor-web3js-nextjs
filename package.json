@@ -9,6 +9,6 @@
     "lint": "cd frontend && pnpm lint"
   },
   "devDependencies": {
-    "next": "15.2.2"
+    "next": "15.2.8"
   }
 }
