@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC, ReactNode, useMemo } from "react";
+import React, { createContext, FC, ReactNode, useMemo } from "react";
 import {
   ConnectionProvider,
   WalletProvider,
@@ -11,6 +11,8 @@ import { clusterApiUrl } from "@solana/web3.js";
 
 // Import the wallet adapter styles
 import "@solana/wallet-adapter-react-ui/styles.css";
+
+export const NetworkContext = createContext<WalletAdapterNetwork | null>(null);
 
 interface SolanaProviderProps {
   children: ReactNode;
@@ -26,7 +28,11 @@ export const SolanaProvider: FC<SolanaProviderProps> = ({ children }) => {
   return (
     <ConnectionProvider endpoint={endpoint}>
       <WalletProvider wallets={[]} autoConnect>
-        <WalletModalProvider>{children}</WalletModalProvider>
+        <WalletModalProvider>
+          <NetworkContext.Provider value={network}>
+            {children}
+          </NetworkContext.Provider>
+        </WalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>
   );
